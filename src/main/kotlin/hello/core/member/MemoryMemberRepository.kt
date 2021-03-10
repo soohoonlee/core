@@ -1,13 +1,17 @@
 package hello.core.member
 
-class MemoryMemberRepository : MemberRepository {
-    private var store: MutableMap<Long, Member> = HashMap()
+import java.util.HashMap
 
+class MemoryMemberRepository : MemberRepository {
     override fun save(member: Member) {
         store[member.id] = member
     }
 
-    override fun findById(memberId: Long): Member? {
-        return store[memberId]
+    override fun findById(memberId: Long): Member {
+        return store[memberId]!!
+    }
+
+    companion object {
+        private val store: MutableMap<Long, Member> = HashMap()
     }
 }
