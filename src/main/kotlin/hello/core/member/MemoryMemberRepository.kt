@@ -1,7 +1,5 @@
 package hello.core.member
 
-import java.util.HashMap
-
 class MemoryMemberRepository : MemberRepository {
     override fun save(member: Member) {
         store[member.id] = member
@@ -12,6 +10,6 @@ class MemoryMemberRepository : MemberRepository {
     }
 
     companion object {
-        private val store: MutableMap<Long, Member> = HashMap()
+        private val store: MutableMap<Long, Member> = hashMapOf()
     }
 }
