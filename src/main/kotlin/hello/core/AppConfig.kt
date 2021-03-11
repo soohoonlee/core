@@ -1,6 +1,6 @@
 package hello.core
 
-import hello.core.discount.FixDiscountPolicy
+import hello.core.discount.RateDiscountPolicy
 import hello.core.member.MemberService
 import hello.core.member.MemberServiceImpl
 import hello.core.member.MemoryMemberRepository
@@ -16,7 +16,7 @@ class AppConfig {
         return OrderServiceImpl(memberRepository(), discountPolicy())
     }
 
-    private fun discountPolicy() = FixDiscountPolicy()
+    private fun discountPolicy() = RateDiscountPolicy()
 
     private fun memberRepository() = MemoryMemberRepository()
 }
